@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Biểu tượng: tia lấp lánh + khung điện thoại -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path
+        android:pathData="M42,32h20a5,5 0 0,1 5,5v34a5,5 0 0,1 -5,5h-20a5,5 0 0,1 -5,-5v-34a5,5 0 0,1 5,-5z"
+        android:strokeWidth="4"
+        android:strokeColor="#FFFFFF" />
+    <path
+        android:pathData="M48,70h8"
+        android:strokeLineCap="round"
+        android:strokeWidth="4"
+        android:strokeColor="#FFFFFF" />
+    <path
+        android:fillColor="#B8F5E4"
+        android:pathData="M70,30 L73,38 L81,41 L73,44 L70,52 L67,44 L59,41 L67,38 Z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M52,44 L54,49 L59,51 L54,53 L52,58 L50,53 L45,51 L50,49 Z" />
+</vector>

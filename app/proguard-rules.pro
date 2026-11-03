@@ -1,0 +1,5 @@
+-keep class rikka.shizuku.** { *; }
+-keep class moe.shizuku.** { *; }
+-keep class org.lsposed.hiddenapibypass.** { *; }
+-dontwarn android.**
+-dontwarn dalvik.**
