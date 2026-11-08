@@ -146,6 +146,52 @@ object Catalog {
         "cn.wps.moffice_eng.xiaomi.lite" to s("WPS Lite", "Đọc văn bản bản Xiaomi."),
         "com.wali.live" to s("Mi Live", "Phát trực tiếp."),
 
+        // ===== MIUI bản quốc tế (Global) =====
+        "com.mi.globalbrowser" to s("Mi Browser", "Trình duyệt Xiaomi, rất nhiều quảng cáo. Nhớ cài Chrome trước."),
+        "com.mi.globalTrendNews" to s("Mi Feed / Tin tức", "Tin tức kèm quảng cáo."),
+        "com.miui.videoplayer" to s("Mi Video", "Xem video Xiaomi, nhiều quảng cáo và gợi ý."),
+        "com.xiaomi.glgm" to s("Games (Xiaomi)", "Kho game Xiaomi, đẩy quảng cáo game."),
+        "com.miui.fmservice" to s("Dịch vụ Radio FM", "Đi kèm Radio FM."),
+        "com.xiaomi.mipicks" to c("GetApps", "Kho ứng dụng Xiaomi, hay đẩy quảng cáo. Gỡ thì app hệ thống tự cập nhật qua Google Play."),
+        "com.mi.globalminusscreen" to c("App Vault", "Trang tiện ích bên trái màn hình chính. Gỡ thì mất trang này."),
+        "com.mi.android.globalFileexplorer" to c("Quản lý tệp", "Trình quản lý file mặc định. Chỉ gỡ khi đã cài app quản lý file khác."),
+        "com.xiaomi.midrop" to c("ShareMe", "Chia sẻ file không cần mạng."),
+        "com.mipay.wallet.in" to s("Mi Pay (Ấn Độ)", "Ví điện tử bản Ấn Độ."),
+        "com.mi.webkit.core" to c("Mi WebView", "Lõi web của app Xiaomi."),
+        "com.facebook.appmanager" to s("Facebook App Manager", "Tự cập nhật Facebook cài sẵn ngầm. Không ảnh hưởng app Facebook anh tự cài."),
+        "com.facebook.services" to s("Facebook Services", "Dịch vụ nền của Facebook, chạy ngầm và thu thập dữ liệu."),
+        "com.facebook.system" to s("Facebook App Installer", "Tự cài app Facebook ngầm."),
+        "com.netflix.partner.activation" to s("Netflix kích hoạt", "Dịch vụ Netflix cài sẵn."),
+        "com.amazon.appmanager" to s("Amazon App Manager", "Tự cài app Amazon."),
+        "com.amazon.mShop.android.shopping" to s("Amazon Shopping", "Mua sắm Amazon cài sẵn."),
+        "in.amazon.mShop.android.shopping" to s("Amazon India", "Mua sắm Amazon cài sẵn."),
+        "com.booking" to s("Booking.com", "Cài sẵn, gỡ nếu không dùng."),
+        "com.agoda.mobile.consumer" to s("Agoda", "Cài sẵn, gỡ nếu không dùng."),
+        "com.linkedin.android" to s("LinkedIn", "Cài sẵn, gỡ nếu không dùng."),
+        "com.ebay.mobile" to s("eBay", "Cài sẵn, gỡ nếu không dùng."),
+        "com.opera.preinstall" to s("Opera cài sẵn", "Trình cài Opera ngầm."),
+        "com.opera.browser" to s("Opera", "Trình duyệt cài sẵn."),
+        "com.ss.android.ugc.trill" to c("TikTok", "Gỡ nếu không dùng."),
+        "com.spotify.music" to c("Spotify", "Gỡ nếu không dùng."),
+        "com.netflix.mediaclient" to c("Netflix", "Gỡ nếu không dùng."),
+        "com.google.android.apps.tachyon" to s("Google Meet (Duo)", "Gọi video Google, gỡ nếu không dùng."),
+        "com.google.android.videos" to s("Google TV", "Thuê phim Google."),
+        "com.google.android.apps.podcasts" to s("Google Podcasts", "Đã ngừng hoạt động."),
+        "com.google.android.apps.subscriptions.red" to s("Google One", "Quản lý gói lưu trữ Google."),
+        "com.google.android.feedback" to s("Google Feedback", "Gửi phản hồi cho Google."),
+        "com.google.ar.lens" to s("Google Lens", "Đã có sẵn trong ứng dụng Google."),
+        "com.google.android.apps.googleassistant" to c("Google Assistant (lối tắt)", "Lối tắt trợ lý Google."),
+        "com.google.android.apps.youtube.music" to c("YouTube Music", "Gỡ nếu không nghe nhạc trên YouTube Music."),
+        "com.google.android.apps.wellbeing" to c("Digital Wellbeing", "Thống kê thời gian dùng máy."),
+        "com.google.android.apps.photos" to c("Google Photos", "Có ảnh sao lưu thì đừng gỡ."),
+        "com.google.android.apps.docs" to c("Google Drive", "Gỡ nếu không dùng Drive."),
+        "com.google.android.gm" to c("Gmail", "Gỡ nếu không dùng Gmail."),
+        "com.google.android.youtube" to c("YouTube", "Gỡ nếu không dùng."),
+        "com.google.android.apps.maps" to c("Google Maps", "Gỡ nếu không dùng."),
+        "com.google.android.googlequicksearchbox" to c("Google", "Thanh tìm kiếm & trợ lý Google."),
+        "com.miui.global.packageinstaller" to x("Trình cài ứng dụng", "Gỡ thì không cài APK được nữa."),
+        "com.xiaomi.micloud.sdk" to c("Xiaomi Cloud SDK", "Đồng bộ đám mây."),
+
         // ===== TUYỆT ĐỐI KHÔNG GỠ =====
         "android" to x("Hệ điều hành Android", "Lõi hệ thống."),
         "com.android.systemui" to x("Giao diện hệ thống", "Thanh trạng thái, thông báo."),
@@ -217,6 +263,15 @@ object Catalog {
     }
 
     fun knownSafe(): Set<String> = map.filterValues { it.risk == Risk.SAFE }.keys
+
+    /** Dịch vụ quảng cáo / theo dõi của MIUI – gỡ để tắt quảng cáo trong app hệ thống. */
+    val adServices = listOf(
+        "com.miui.msa.global", "com.miui.systemAdSolution", "com.miui.analytics", "com.miui.daemon",
+        "com.miui.hybrid", "com.miui.hybrid.accessory", "com.mi.globalTrendNews", "com.miui.newhome",
+        "com.miui.contentextension", "com.miui.android.fashiongallery", "com.mfashiongallery.emag",
+        "com.facebook.appmanager", "com.facebook.services", "com.facebook.system",
+        "com.amazon.appmanager", "com.opera.preinstall", "com.xiaomi.ab"
+    )
 }
 
 object BuildConfigShim {

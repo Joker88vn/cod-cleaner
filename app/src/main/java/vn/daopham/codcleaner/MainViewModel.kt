@@ -61,6 +61,12 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
     var localeTags by mutableStateOf(currentLocales())
         private set
 
+    val rom: RomInfo = Device.info
+
+    /** Máy chủ DNS chặn quảng cáo đang bật (rỗng = tắt, null = chưa đọc được). */
+    var adDns by mutableStateOf<String?>(null)
+        private set
+
     init {
         loadLog()
         refreshShizuku()
@@ -69,7 +75,30 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
 
     fun refreshShizuku() {
         shizuku = Shell.state(getApplication())
+        refreshAdDns()
     }
+
+    // ---------- Chặn quảng cáo ----------
+    fun refreshAdDns() {
+        if (shizuku != ShizukuState.READY) { adDns = null; return }
+        viewModelScope.launch { adDns = withContext(Dispatchers.IO) { Shell.privateDns() } }
+    }
+
+    fun setAdBlock(on: Boolean) {
+        refreshShizuku()
+        if (shizuku != ShizukuState.READY) { toast = "Cần kết nối Shizuku trước."; return }
+        viewModelScope.launch {
+            val r = withContext(Dispatchers.IO) { Shell.setPrivateDns(if (on) Shell.ADGUARD_DNS else null) }
+            if (r.ok) {
+                addLog(if (on) "Bật chặn quảng cáo (AdGuard DNS)" else "Tắt chặn quảng cáo DNS")
+                toast = if (on) "Đã bật chặn quảng cáo toàn máy." else "Đã tắt chặn quảng cáo DNS."
+            } else toast = "Không đổi được: ${r.message}"
+            adDns = withContext(Dispatchers.IO) { Shell.privateDns() }
+        }
+    }
+
+    /** Dịch vụ quảng cáo đang còn trên máy. */
+    val adServicesLeft get() = Catalog.adServices.filter { pkg -> apps.any { it.pkg == pkg && it.installed } }
 
     fun setExpertMode(on: Boolean) {
         expert = on

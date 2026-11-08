@@ -69,6 +69,20 @@ object Shell {
         return if (r.ok) r else run("pm install-existing --user 0 $pkg")
     }
     fun disable(pkg: String) = run("pm disable-user --user 0 $pkg")
+
+    // ---------- Chặn quảng cáo bằng DNS riêng tư ----------
+    const val ADGUARD_DNS = "dns.adguard-dns.com"
+
+    /** Trả về tên máy chủ DNS riêng tư đang dùng, hoặc rỗng nếu không bật. */
+    fun privateDns(): String {
+        val mode = run("settings get global private_dns_mode").out.trim()
+        if (mode != "hostname") return ""
+        return run("settings get global private_dns_specifier").out.trim().takeIf { it != "null" }.orEmpty()
+    }
+
+    fun setPrivateDns(host: String?): CmdResult =
+        if (host.isNullOrBlank()) run("settings put global private_dns_mode opportunistic")
+        else run("settings put global private_dns_specifier $host && settings put global private_dns_mode hostname")
     fun enable(pkg: String) = run("pm enable --user 0 $pkg")
 
     /**

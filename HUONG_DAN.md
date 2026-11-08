@@ -1,6 +1,6 @@
 # COD Cleaner
 
-Dọn ứng dụng rác và chuyển Tiếng Việt cho Xiaomi HyperOS bản nội địa — không cần root.
+Dọn ứng dụng rác, chặn quảng cáo cho máy Xiaomi (MIUI/HyperOS, bản quốc tế và nội địa) — không cần root.
 
 ## Tải APK
 https://github.com/Joker88vn/cod-cleaner/releases/latest/download/COD-Cleaner.apk
@@ -16,5 +16,6 @@ https://github.com/Joker88vn/cod-cleaner/releases/latest/download/COD-Cleaner.ap
 - **Dọn nhanh**: gỡ toàn bộ app rác được đánh dấu *An toàn* (quảng cáo, theo dõi, app Trung Quốc cài sẵn).
 - **Ứng dụng**: lọc theo mức độ (Nên dọn / Cẩn thận / Chưa rõ / Hệ thống), chọn nhiều, gỡ hoặc tắt.
 - **Khôi phục**: cài lại app đã gỡ, bật lại app đã tắt; lưu/nhập file danh sách để dọn lại sau khi reset.
-- **Ngôn ngữ**: chuyển hệ thống sang Tiếng Việt (phần chưa dịch hiện Tiếng Anh).
+- **Tiện ích → Chặn quảng cáo**: bật AdGuard DNS chặn quảng cáo toàn máy, gỡ dịch vụ quảng cáo MSA/Analytics/Facebook cài ngầm.
+- **Tiện ích → Ngôn ngữ** (chỉ máy nội địa): chuyển hệ thống sang Tiếng Việt.
 - Tự bảo vệ bàn phím và màn hình chính đang dùng; app hệ thống quan trọng bị khoá trừ khi bật Chế độ chuyên gia.

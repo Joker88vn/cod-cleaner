@@ -32,7 +32,7 @@ import androidx.compose.material.icons.rounded.ErrorOutline
 import androidx.compose.material.icons.rounded.Refresh
 import androidx.compose.material.icons.rounded.Restore
 import androidx.compose.material.icons.rounded.Settings
-import androidx.compose.material.icons.rounded.Translate
+import androidx.compose.material.icons.rounded.Shield
 import androidx.compose.material.icons.rounded.WarningAmber
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
@@ -111,7 +111,7 @@ private val tabs = listOf(
     Tab("COD Cleaner", "Tổng quan", Icons.Rounded.Dashboard),
     Tab("Ứng dụng", "Ứng dụng", Icons.Rounded.Apps),
     Tab("Khôi phục", "Khôi phục", Icons.Rounded.Restore),
-    Tab("Ngôn ngữ", "Ngôn ngữ", Icons.Rounded.Translate)
+    Tab("Tiện ích", "Tiện ích", Icons.Rounded.Shield)
 )
 
 private data class Pending(val action: Action, val pkgs: List<String>, val thenDisable: List<String> = emptyList())
@@ -148,7 +148,7 @@ private fun App(vm: MainViewModel) {
                     Column {
                         Text(tabs[tab].title, style = MaterialTheme.typography.headlineSmall)
                         if (tab == 0) Text(
-                            "Dọn ứng dụng rác cho Xiaomi HyperOS",
+                            "${vm.rom.model} · ${vm.rom.label}",
                             style = MaterialTheme.typography.bodySmall,
                             color = MaterialTheme.colorScheme.onSurfaceVariant
                         )
@@ -197,7 +197,7 @@ private fun App(vm: MainViewModel) {
                 2 -> RestoreScreen(vm, pad, onAction = ask, onImport = { rm, dis ->
                     pending = if (rm.isNotEmpty()) Pending(Action.UNINSTALL, rm, dis) else Pending(Action.DISABLE, dis)
                 })
-                else -> LanguageScreen(vm, pad)
+                else -> ToolsScreen(vm, pad, onAction = ask)
             }
         }
     }
@@ -356,7 +356,7 @@ private fun SettingsDialog(vm: MainViewModel, onDismiss: () -> Unit) {
                 Spacer(Modifier.height(16.dp))
                 HorizontalDivider()
                 Spacer(Modifier.height(12.dp))
-                Text("COD Cleaner 1.0", style = MaterialTheme.typography.titleSmall)
+                Text("COD Cleaner 1.1", style = MaterialTheme.typography.titleSmall)
                 Text(
                     "Gỡ bằng lệnh \"pm uninstall --user 0\" qua Shizuku: không cần root, không xoá khỏi phân vùng hệ thống. " +
                         "Nếu reset máy, ứng dụng sẽ quay lại – dùng file sao lưu để dọn lại.",

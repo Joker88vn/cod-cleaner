@@ -33,6 +33,7 @@ import androidx.compose.material.icons.rounded.Inventory2
 import androidx.compose.material.icons.rounded.Link
 import androidx.compose.material.icons.rounded.LinkOff
 import androidx.compose.material.icons.rounded.Translate
+import androidx.compose.material.icons.rounded.Shield
 import androidx.compose.material.icons.rounded.Apps
 import androidx.compose.material.icons.rounded.ChevronRight
 import androidx.compose.material3.Button
@@ -82,6 +83,14 @@ fun HomeScreen(vm: MainViewModel, contentPadding: PaddingValues, onQuickClean: (
             }
         }
         item {
+            val adLeft = vm.adServicesLeft.size
+            ShortcutRow(
+                Icons.Rounded.Shield, "Chặn quảng cáo",
+                (if (vm.adDns == Shell.ADGUARD_DNS) "Đang chặn toàn máy" else "Chưa bật chặn toàn máy") +
+                    if (adLeft > 0) " · còn $adLeft dịch vụ quảng cáo" else ""
+            ) { goTo(3) }
+        }
+        if (vm.rom.isChina) item {
             ShortcutRow(
                 Icons.Rounded.Translate, "Chuyển sang Tiếng Việt",
                 "Hiện tại: ${prettyLocale(vm.localeTags)}"
@@ -150,7 +159,7 @@ private fun HeroCard(vm: MainViewModel, onQuickClean: () -> Unit) {
                     Spacer(Modifier.height(4.dp))
                     Text(
                         if (left == 0) "Không còn ứng dụng rác nào trong danh sách an toàn."
-                        else "Quảng cáo, theo dõi và app Trung Quốc cài sẵn — gỡ an toàn, khôi phục lại được.",
+                        else (if (vm.rom.isChina) "Quảng cáo, theo dõi và app Trung Quốc cài sẵn" else "Quảng cáo, theo dõi và app cài sẵn") + " — gỡ an toàn, khôi phục lại được.",
                         color = Color.White.copy(alpha = 0.85f), style = MaterialTheme.typography.bodySmall
                     )
                 }
@@ -232,12 +241,12 @@ private fun ShizukuCard(vm: MainViewModel) {
                 }
                 AnimatedVisibility(open || st == ShizukuState.NOT_INSTALLED) {
                     Column(Modifier.padding(top = 12.dp)) {
-                        Text("Cách bật trên HyperOS (làm 1 lần):", style = MaterialTheme.typography.labelLarge)
+                        Text("Cách bật (làm 1 lần):", style = MaterialTheme.typography.labelLarge)
                         Spacer(Modifier.height(6.dp))
                         BulletStep(1, "Cài Shizuku (bấm \"Tải Shizuku\", chọn file .apk).")
-                        BulletStep(2, "Cài đặt → Giới thiệu điện thoại → bấm 7 lần vào \"Phiên bản OS\" để mở Tùy chọn nhà phát triển.")
+                        BulletStep(2, "Cài đặt → Giới thiệu điện thoại → bấm 7 lần vào \"Phiên bản MIUI\" (hoặc \"Phiên bản OS\") để mở Tùy chọn nhà phát triển.")
                         BulletStep(3, "Cài đặt → Cài đặt bổ sung → Tùy chọn nhà phát triển: bật \"Gỡ lỗi USB\", \"Gỡ lỗi USB (Cài đặt bảo mật)\" và \"Gỡ lỗi không dây\".")
-                        BulletStep(4, "Mở Shizuku → \"Ghép nối\" → vào Gỡ lỗi không dây → \"Ghép nối thiết bị bằng mã\", nhập mã vào thông báo của Shizuku.")
+                        BulletStep(4, "Mở Shizuku → \"Ghép nối\" → vào Gỡ lỗi không dây → \"Ghép nối thiết bị bằng mã\". Kéo thanh thông báo, vuốt xuống trên thông báo Shizuku để hiện ô nhập mã 6 số.")
                         BulletStep(5, "Quay lại Shizuku bấm \"Bắt đầu\", rồi trở về đây bấm \"Cấp quyền\".")
                         Spacer(Modifier.height(4.dp))
                         Text(
