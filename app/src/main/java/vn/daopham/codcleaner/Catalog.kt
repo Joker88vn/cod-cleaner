@@ -92,7 +92,7 @@ object Catalog {
         "com.miui.calculator" to c("Máy tính", "Máy tính bỏ túi."),
         "com.miui.screenrecorder" to c("Quay màn hình", "Quay màn hình."),
         "com.xiaomi.scanner" to c("Quét mã", "Quét QR/tài liệu."),
-        "com.miui.mediaeditor" to c("Sửa ảnh/video", "Trình chỉnh sửa của Thư viện."),
+        "com.miui.mediaeditor" to x("Sửa ảnh/video (Gallery Editor)", "Cần cho chụp màn hình cuộn, sửa ảnh chụp màn hình và chỉnh sửa trong Thư viện."),
         "com.miui.cit" to c("CIT – kiểm tra phần cứng", "Menu kiểm tra phần cứng."),
         "com.xiaomi.joyose" to c("Joyose", "Quản lý hiệu năng khi chơi game. Gỡ có thể làm máy nóng/giật hơn."),
         "com.miui.freeform" to c("Cửa sổ nổi", "Mở ứng dụng dạng cửa sổ nhỏ."),
@@ -109,7 +109,8 @@ object Catalog {
         "com.milink.service" to c("Truyền màn hình", "Cast màn hình lên TV."),
         "com.miui.accessibility" to c("Trợ năng Xiaomi", "Tính năng trợ năng."),
         "com.xiaomi.simactivate.service" to c("Kích hoạt SIM", "Kích hoạt tài khoản qua SIM."),
-        "com.miui.gallery" to c("Thư viện ảnh", "Chỉ gỡ khi đã cài Google Photos hoặc app ảnh khác."),
+        "com.miui.gallery" to x("Thư viện ảnh", "Cần cho xem/sửa ảnh chụp màn hình và chụp màn hình cuộn."),
+        "com.miui.screenshot" to x("Chụp màn hình", "Chụp màn hình và chụp cuộn."),
 
         // ===== Bàn phím Trung Quốc (tự bảo vệ nếu đang dùng) =====
         "com.baidu.input_mi" to c("Bàn phím Baidu", "Chỉ gỡ khi đã chuyển sang Gboard/Laban Key."),

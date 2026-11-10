@@ -356,7 +356,7 @@ private fun SettingsDialog(vm: MainViewModel, onDismiss: () -> Unit) {
                 Spacer(Modifier.height(16.dp))
                 HorizontalDivider()
                 Spacer(Modifier.height(12.dp))
-                Text("COD Cleaner 1.1", style = MaterialTheme.typography.titleSmall)
+                Text("COD Cleaner 1.2", style = MaterialTheme.typography.titleSmall)
                 Text(
                     "Gỡ bằng lệnh \"pm uninstall --user 0\" qua Shizuku: không cần root, không xoá khỏi phân vùng hệ thống. " +
                         "Nếu reset máy, ứng dụng sẽ quay lại – dùng file sao lưu để dọn lại.",
